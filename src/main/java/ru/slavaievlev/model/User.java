@@ -9,6 +9,14 @@ import ru.slavaievlev.model.enums.UserState;
 @Setter
 public class User {
 
+    public User() {
+
+    }
+
+    public User(String login) {
+        this.login = login;
+    }
+
     private long id;
 
     private String login;
