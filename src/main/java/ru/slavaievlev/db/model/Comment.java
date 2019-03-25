@@ -1,8 +1,8 @@
-package ru.slavaievlev.model;
+package ru.slavaievlev.db.model;
 
 import lombok.Getter;
 import lombok.Setter;
-import ru.slavaievlev.model.enums.CommentState;
+import ru.slavaievlev.db.model.enums.CommentState;
 
 import java.sql.Timestamp;
 

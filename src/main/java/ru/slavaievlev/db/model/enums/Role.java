@@ -1,4 +1,4 @@
-package ru.slavaievlev.model.enums;
+package ru.slavaievlev.db.model.enums;
 
 public enum Role {
     USER, ADMIN, MODERATOR

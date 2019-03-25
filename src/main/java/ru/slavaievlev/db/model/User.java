@@ -1,9 +1,9 @@
-package ru.slavaievlev.model;
+package ru.slavaievlev.db.model;
 
 import lombok.Getter;
 import lombok.Setter;
-import ru.slavaievlev.model.enums.Role;
-import ru.slavaievlev.model.enums.UserState;
+import ru.slavaievlev.db.model.enums.Role;
+import ru.slavaievlev.db.model.enums.UserState;
 
 @Getter
 @Setter

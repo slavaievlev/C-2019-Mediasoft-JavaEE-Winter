@@ -1,0 +1,65 @@
+databaseChangeLog:
+  - changeSet:
+      id: 3
+      author: Slava Ievlev
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: city_id
+            baseTableName: area
+            constraintName: fk_city_id_area_city_id
+            onDelete: CASCADE
+            referencedColumnNames: id
+            referencedTableName: city
+
+        - addForeignKeyConstraint:
+            baseColumnNames: area_id
+            baseTableName: street
+            constraintName: fk_area_id_street_area_id
+            onDelete: CASCADE
+            referencedColumnNames: id
+            referencedTableName: area
+
+        - addForeignKeyConstraint:
+            baseColumnNames: city_id
+            baseTableName: user
+            constraintName: fk_city_id_user_city_id
+            onDelete: CASCADE
+            referencedColumnNames: id
+            referencedTableName: city
+
+        - addForeignKeyConstraint:
+            baseColumnNames: user_id
+            baseTableName: comment
+            constraintName: fk_user_id_comment_user_id
+            onDelete: CASCADE
+            referencedColumnNames: id
+            referencedTableName: user
+        - addForeignKeyConstraint:
+            baseColumnNames: place_id
+            baseTableName: comment
+            constraintName: fk_place_id_comment_place_id
+            onDelete: CASCADE
+            referencedColumnNames: id
+            referencedTableName: place
+
+        - addForeignKeyConstraint:
+            baseColumnNames: city_id
+            baseTableName: place
+            constraintName: fk_city_id_place_city_id
+            onDelete: CASCADE
+            referencedColumnNames: id
+            referencedTableName: city
+        - addForeignKeyConstraint:
+            baseColumnNames: area_id
+            baseTableName: place
+            constraintName: fk_area_id_place_area_id
+            onDelete: CASCADE
+            referencedColumnNames: id
+            referencedTableName: area
+        - addForeignKeyConstraint:
+            baseColumnNames: street_id
+            baseTableName: place
+            constraintName: fk_street_id_place_street_id
+            onDelete: CASCADE
+            referencedColumnNames: id
+            referencedTableName: street

@@ -1,13 +1,15 @@
-package ru.slavaievlev.model;
+package ru.slavaievlev.db.model;
 
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-public class City {
+public class Area {
 
     private long id;
 
     private String name;
+
+    private long areaId;
 }
