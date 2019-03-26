@@ -1,6 +1,8 @@
 package ru.slavaievlev.db.repository;
 
-public interface IUserRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+import ru.slavaievlev.db.model.User;
 
+public interface IUserRepository extends JpaRepository<User, Integer> {
 
 }
