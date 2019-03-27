@@ -1,3 +1,10 @@
 databaseChangeLog:
-  - includeAll:
-      path: db/changelog/changes/1.0/
+  - include:
+      file: db/changelog/changes/1.0/2019-03-25--01-created-tables.yaml
+  - include:
+      file: db/changelog/changes/1.0/2019-03-25--02-created-sequences.yaml
+  - include:
+      file: db/changelog/changes/1.0/2019-03-25--03-created-constraints.yaml
+
+  - include:
+      file: db/changelog/changes/data/2019-03-27--01-added-city.yaml
