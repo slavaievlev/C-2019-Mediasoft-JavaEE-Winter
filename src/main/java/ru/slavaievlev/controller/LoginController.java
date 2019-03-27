@@ -21,7 +21,7 @@ public class LoginController {
     {
         System.out.println("Получили данные!");
         try {
-            userService.registration(userDto);
+            userService.authorization(userDto);
             return null;
         } catch (Exception ex) {
             return ex.getMessage(); // TODO после тестов убрать.
