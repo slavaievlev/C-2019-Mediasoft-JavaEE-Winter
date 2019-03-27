@@ -36,7 +36,7 @@ public class Comment {
 
     @NotNull
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "client_id")
     private User user;
 
     @NotNull

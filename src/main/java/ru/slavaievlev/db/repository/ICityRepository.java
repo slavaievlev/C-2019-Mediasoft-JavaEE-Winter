@@ -5,7 +5,7 @@ import ru.slavaievlev.db.model.City;
 
 import java.util.Optional;
 
-public interface ICityRepository extends JpaRepository<City, Integer> {
+public interface ICityRepository extends JpaRepository<City, Long> {
 
     Optional<City> getByName(String name);
 }

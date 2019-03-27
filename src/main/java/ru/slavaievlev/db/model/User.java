@@ -11,11 +11,11 @@ import javax.validation.constraints.NotNull;
 @Getter
 @Setter
 @Entity
-@Table(name = "user")
+@Table(name = "client")
 public class User {
 
     @Id
-    @SequenceGenerator(name = "sequence", sequenceName = "user_sequence", allocationSize = 1, initialValue = 1)
+    @SequenceGenerator(name = "sequence", sequenceName = "client_sequence", allocationSize = 1, initialValue = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequence")
     private long id;
 

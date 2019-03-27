@@ -2,10 +2,43 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="ISO-8859-1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
     <title>Spring MVC 5 + Thymeleaf</title>
 </head>
 <body>
-<h2 th:text="${message}"></h2>
+    <h2 th:text="${message}"></h2>
+
+    <button onclick="f()">Text</button>
 </body>
 </html>
+
+<script>
+    function f() {
+        var data = {
+            login: "firstLogin",
+            password: "secondPassword",
+            lastName: "lastName",
+            firstName: "firstName",
+            cityName: "Uljanovsk"
+        };
+
+        console.log("Press button");
+
+        $.ajax({
+            url: '/C_2019_Mediasoft_JavaEE_Winter_war_exploded/login/authorization',
+            type: 'PUT',
+            data: JSON.stringify(data),
+            contentType:"application/json; charset=utf-8",
+            dataType:"json",
+            success: function (result) {
+                if (result == null) {
+                    console.log("success");
+                } else {
+                    console.log(result);
+                }
+
+            }
+        });
+    }
+</script>

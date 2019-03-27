@@ -24,7 +24,7 @@ databaseChangeLog:
         - createSequence:
             cycle: false
             incrementBy: 1
-            sequenceName: user_sequence
+            sequenceName: client_sequence
             startValue: 1
 
         - createSequence:

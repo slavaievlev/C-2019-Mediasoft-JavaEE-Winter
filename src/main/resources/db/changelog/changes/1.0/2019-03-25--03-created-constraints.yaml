@@ -21,19 +21,19 @@ databaseChangeLog:
 
         - addForeignKeyConstraint:
             baseColumnNames: city_id
-            baseTableName: user
-            constraintName: fk_city_id_user_city_id
+            baseTableName: client
+            constraintName: fk_city_id_client_city_id
             onDelete: CASCADE
             referencedColumnNames: id
             referencedTableName: city
 
         - addForeignKeyConstraint:
-            baseColumnNames: user_id
+            baseColumnNames: client_id
             baseTableName: comment
-            constraintName: fk_user_id_comment_user_id
+            constraintName: fk_client_id_comment_client_id
             onDelete: CASCADE
             referencedColumnNames: id
-            referencedTableName: user
+            referencedTableName: client
         - addForeignKeyConstraint:
             baseColumnNames: place_id
             baseTableName: comment

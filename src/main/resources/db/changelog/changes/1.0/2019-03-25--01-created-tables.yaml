@@ -59,7 +59,7 @@ databaseChangeLog:
                     nullable: false
 
         - createTable:
-            tableName: user
+            tableName: client
             columns:
               - column:
                   name: id
@@ -133,7 +133,7 @@ databaseChangeLog:
                   constraints:
                     nullable: false
               - column:
-                  name: user_id
+                  name: client_id
                   type: int
                   constraints:
                     nullable: false

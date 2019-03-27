@@ -5,7 +5,7 @@ import ru.slavaievlev.db.model.User;
 
 import java.util.Optional;
 
-public interface IUserRepository extends JpaRepository<User, Integer> {
+public interface IUserRepository extends JpaRepository<User, Long> {
 
     Optional<User> getByLogin(String login);
 }

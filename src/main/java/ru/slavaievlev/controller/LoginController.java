@@ -19,8 +19,9 @@ public class LoginController {
     @PutMapping(path = Url.LoginRequest.AUTHORIZATION)
     public String authorization(@RequestBody UserDto userDto)
     {
+        System.out.println("Получили данные!");
         try {
-            userService.authorization(userDto);
+            userService.registration(userDto);
             return null;
         } catch (Exception ex) {
             return ex.getMessage(); // TODO после тестов убрать.

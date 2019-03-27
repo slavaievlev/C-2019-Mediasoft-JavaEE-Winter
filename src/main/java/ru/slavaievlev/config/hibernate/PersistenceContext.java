@@ -24,7 +24,7 @@ import java.util.Properties;
 class PersistenceContext {
 
     @Value("${spring.datasource.driver-class-name}")
-    private String drivenClassName;
+    private String driverClassName;
 
     @Value("${spring.datasource.url}")
     private String dataSourceUrl;
@@ -44,7 +44,7 @@ class PersistenceContext {
     @Bean(destroyMethod = "close")
     DataSource dataSource(Environment env) {
         HikariConfig dataSourceConfig = new HikariConfig();
-        dataSourceConfig.setDriverClassName(drivenClassName);
+        dataSourceConfig.setDriverClassName(driverClassName);
         dataSourceConfig.setJdbcUrl(dataSourceUrl);
         dataSourceConfig.setUsername(dataSourceUsername);
         dataSourceConfig.setPassword(dataSourcePassword);
@@ -53,17 +53,30 @@ class PersistenceContext {
     }
 
     @Bean
-    LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource dataSource, Environment env) {
+    LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource dataSource,
+                                                                Environment env) {
         LocalContainerEntityManagerFactoryBean entityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
         entityManagerFactoryBean.setDataSource(dataSource);
         entityManagerFactoryBean.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
-        entityManagerFactoryBean.setPackagesToScan("ru.slavaievlev");
+        entityManagerFactoryBean.setPackagesToScan("ru.slavaievlev.db");
 
         Properties jpaProperties = new Properties();
 
         jpaProperties.put("hibernate.dialect", databasePlatform);
 
-        jpaProperties.put("hibernate.temp.use_jdbc_metadata_defaults", userJdbcMetadataDefaults);
+//        jpaProperties.put("hibernate.hbm2ddl.auto", hdm2dll);
+//
+//        jpaProperties.put("hibernate.ejb.naming_strategy",
+//                env.getRequiredProperty("hibernate.ejb.naming_strategy")
+//        );
+//
+//        jpaProperties.put("hibernate.show_sql",
+//                env.getRequiredProperty("hibernate.show_sql")
+//        );
+//
+//        jpaProperties.put("hibernate.format_sql",
+//                env.getRequiredProperty("hibernate.format_sql")
+//        );
 
         entityManagerFactoryBean.setJpaProperties(jpaProperties);
 
@@ -76,4 +89,6 @@ class PersistenceContext {
         transactionManager.setEntityManagerFactory(entityManagerFactory);
         return transactionManager;
     }
+
+
 }

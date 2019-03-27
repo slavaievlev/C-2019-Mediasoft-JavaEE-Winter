@@ -10,7 +10,7 @@
     <packaging>war</packaging>
 
     <properties>
-        <java-version>1.8</java-version>
+        <java-version>1.10</java-version>
         <org.springframework-version>5.1.5.RELEASE</org.springframework-version>
         <org.spring-data-jpa-version>2.1.5.RELEASE</org.spring-data-jpa-version>
         <hibernate.version>5.4.2.Final</hibernate.version>
@@ -118,6 +118,12 @@
             <version>${liquibase.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.apache.tomcat</groupId>
+            <artifactId>tomcat-dbcp</artifactId>
+            <version>9.0.17</version>
+        </dependency>
+
         <!--Password Encoder-->
         <dependency>
             <groupId>commons-codec</groupId>
@@ -139,8 +145,8 @@
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
+                    <source>${java-version}</source>
+                    <target>${java-version}</target>
                 </configuration>
             </plugin>
             <plugin>
