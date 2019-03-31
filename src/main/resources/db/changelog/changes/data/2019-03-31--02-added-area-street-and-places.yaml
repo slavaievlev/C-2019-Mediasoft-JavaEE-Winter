@@ -1,0 +1,50 @@
+databaseChangeLog:
+  - changeSet:
+      id: 5
+      author: Slava Ievlev
+      changes:
+        - insert:
+            columns:
+              - column:
+                  name: id
+                  value: 0
+              - column:
+                  name: name
+                  value: "Leninskiy"
+              - column:
+                  name: city_id
+                  value: 0
+            tableName: area
+        - insert:
+            columns:
+              - column:
+                  name: id
+                  value: 0
+              - column:
+                  name: name
+                  value: "Lenina street"
+              - column:
+                  name: area_id
+                  value: 0
+            tableName: street
+        - insert:
+            columns:
+              - column:
+                  name: id
+                  value: 0
+              - column:
+                  name: name
+                  value: "Ploshad Lenina"
+              - column:
+                  name: rating
+                  value: 4
+              - column:
+                  name: city_id
+                  value: 0
+              - column:
+                  name: area_id
+                  value: 0
+              - column:
+                  name: street_id
+                  value: 0
+            tableName: place

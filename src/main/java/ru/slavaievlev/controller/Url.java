@@ -12,4 +12,9 @@ public interface Url {
         String ROOT = "/users";
         String CRUD = "/user";
     }
+
+    interface PageRequest {
+        String ROOT = "/pages";
+        String Place = ROOT + "/place";
+    }
 }
