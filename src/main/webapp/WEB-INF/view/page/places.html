@@ -7,6 +7,20 @@
     <title>Весна MVC 5 + Thymeleaf</title>
 </head>
 <body>
-
+<tr th:each="place : ${places}">
+    <td th:text="${place.name}">Name</td>
+    <td th:text="${place.rating}">Rating</td>
+    <td th:text="${place.cityName}">City</td>
+    <td th:text="${place.areaName}">Area</td>
+    <td th:text="${place.streetName}">Street</td>
+    <button onclick="readPlace()">Read</button>
+    <script>
+        function readPlace() {
+            var placeId = [[${place.id}]];
+            window.open("/C_2019_Mediasoft_JavaEE_Winter_war_exploded/places/place?place_id="
+                + placeId, "_self");
+        }
+    </script>
+</tr>
 </body>
 </html>

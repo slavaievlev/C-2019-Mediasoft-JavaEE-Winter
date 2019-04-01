@@ -5,8 +5,54 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
     <title>Весна MVC 5 + Thymeleaf</title>
+
+    <script>
+        function ff() {
+            var commentText = document.getElementById("commentTextArea").value;
+
+            var data = {
+                text: commentText,
+                userLogin: "lastName",
+                placeName: [[${placeDto.name}]]
+            };
+
+            $.ajax({
+                url: '/C_2019_Mediasoft_JavaEE_Winter_war_exploded/comments',
+                type: 'POST',
+                data: JSON.stringify(data),
+                contentType:"application/json; charset=utf-8",
+                dataType:"json",
+                success: function (ex) {
+                    if (result == null) {
+                        console.log("created");
+                    } else {
+                        console.log(ex);
+                    }
+
+                }
+            });
+
+        }
+    </script>
 </head>
 <body>
+<div id="info-panel">
+    <h2 th:utext="${placeDto.name}"></h2>
+    <h2 th:utext="${placeDto.rating}"></h2>
+    <h2 th:utext="${placeDto.cityName}"></h2>
+    <h2 th:utext="${placeDto.areaName}"></h2>
+    <h2 th:utext="${placeDto.streetName}"></h2>
+</div>
+<div id="comment-panel">
+    <tr th:each="comment : ${commentsList}">
+        <td th:text="${comment.creationDate}">Date</td>
+        <td th:text="${comment.userLogin}">Login</td>
+        <td th:text="${comment.text}">Text</td>
+    </tr>
 
+    <textarea id="commentTextArea"></textarea>
+
+    <button onclick="ff()">Create comment</button>
+</div>
 </body>
 </html>

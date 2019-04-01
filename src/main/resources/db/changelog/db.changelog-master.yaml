@@ -10,3 +10,5 @@ databaseChangeLog:
       file: db/changelog/changes/data/2019-03-27--01-added-city.yaml
   - include:
       file: db/changelog/changes/data/2019-03-31--02-added-area-street-and-places.yaml
+  - include:
+      file: db/changelog/changes/data/2019-04-01--03-added-test-user.yaml

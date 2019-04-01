@@ -6,47 +6,56 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import ru.slavaievlev.db.model.Comment;
+import ru.slavaievlev.dto.CommentDto;
 import ru.slavaievlev.dto.PlaceDto;
-import ru.slavaievlev.service.PlaceService;
+import ru.slavaievlev.service.CommentService;
+import ru.slavaievlev.service.ICommentService;
+import ru.slavaievlev.service.IPlaceService;
 
-@Controller(Url.PageRequest.ROOT)
-public class PageController
-{
+import java.util.List;
 
-    private PlaceService placeService;
+@Controller
+public class PageController {
+
+    private IPlaceService placeService;
+    private ICommentService commentService;
 
     @Autowired
-    public PageController(PlaceService placeService) {
+    public PageController(IPlaceService placeService, CommentService commentService) {
         this.placeService = placeService;
+        this.commentService = commentService;
     }
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @RequestMapping(value = Url.PageRequest.ROOT, method = RequestMethod.GET)
     public String hello(Model model) {
 
         return "hello";
     }
 
-    @RequestMapping(value = "/places", method = RequestMethod.GET)
+    @RequestMapping(value = Url.PageRequest.PLACES, method = RequestMethod.GET)
     public String places(Model model) {
-
+        List<PlaceDto> places = placeService.getAll();
+        model.addAttribute("places", places);
         return "places";
     }
 
-    @RequestMapping(value = "/place", method = RequestMethod.GET)
+    @RequestMapping(value = Url.PageRequest.PLACE, method = RequestMethod.GET)
     public String place(Model model, @RequestParam(value = "place_id") int placeId) {
-        PlaceDto placeDto;
         try {
-            placeDto = placeService.getOne(new Long(placeId));
+            PlaceDto placeDto = placeService.getOne(new Long(placeId));
+            model.addAttribute("placeDto", placeDto);
+
+            List<CommentDto> comments = commentService.getAll(placeDto.getName());
+            model.addAttribute("commentsList", comments);
         } catch (Exception ex) {
-            placeDto = new PlaceDto();
-            placeDto.setName(ex.getMessage());
+            model.addAttribute("ex", ex.getMessage());
         }
-        model.addAttribute("placeDto", placeDto);
 
         return "place";
     }
 
-    @RequestMapping(value = "/add-place", method = RequestMethod.GET)
+    @RequestMapping(value = Url.PageRequest.ADD_PLACE, method = RequestMethod.GET)
     public String addPlace(Model model) {
 
         return "add-place";

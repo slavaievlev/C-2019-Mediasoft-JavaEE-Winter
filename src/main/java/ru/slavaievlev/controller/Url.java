@@ -8,13 +8,14 @@ public interface Url {
         String REGISTRATION = "/registration";
     }
 
-    interface UserRequest {
-        String ROOT = "/users";
-        String CRUD = "/user";
+    interface PageRequest {
+        String ROOT = "/";
+        String PLACES = "/places";
+        String PLACE = PLACES + "/place";
+        String ADD_PLACE = PLACES + "/add-place";
     }
 
-    interface PageRequest {
-        String ROOT = "/pages";
-        String Place = ROOT + "/place";
+    interface CommentRequest {
+        String ROOT = "/comments";
     }
 }

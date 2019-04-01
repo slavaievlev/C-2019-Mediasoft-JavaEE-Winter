@@ -14,7 +14,7 @@ import ru.slavaievlev.dto.UserDto;
 import java.util.Optional;
 
 @Service
-public class UserService {
+public class UserService implements IUserService{
 
     private IUserRepository userRepository;
     private ICityRepository cityRepository;

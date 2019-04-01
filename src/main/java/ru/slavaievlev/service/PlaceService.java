@@ -7,10 +7,11 @@ import ru.slavaievlev.db.repository.IPlaceRepository;
 import ru.slavaievlev.dto.PlaceDto;
 import ru.slavaievlev.service.mapper.PlaceMapper;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
-public class PlaceService {
+public class PlaceService implements IPlaceService{
 
     private IPlaceRepository placeRepository;
 
@@ -33,6 +34,11 @@ public class PlaceService {
         }
 
         return placeMapper.placeToPlaceDto(place.get());
+    }
+
+    public List<PlaceDto> getAll() {
+        List<Place> placeList = placeRepository.findAll();
+        return placeMapper.placeListToPlaceDtoList(placeList);
     }
 
     public void update(PlaceDto placeDto) {

@@ -3,16 +3,16 @@ package ru.slavaievlev.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import ru.slavaievlev.dto.UserDto;
-import ru.slavaievlev.service.UserService;
+import ru.slavaievlev.service.IUserService;
 
 @RestController
 @RequestMapping(Url.LoginRequest.ROOT)
 public class LoginController {
 
-    private UserService userService;
+    private IUserService userService;
 
     @Autowired
-    public LoginController(UserService userService) {
+    public LoginController(IUserService userService) {
         this.userService = userService;
     }
 
